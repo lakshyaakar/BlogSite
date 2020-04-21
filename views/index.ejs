@@ -1,0 +1,21 @@
+<% include ./partials/header.ejs %>
+<div class="ui main text container segment">
+	<div class="ui huge header">Restful Blogs</div>
+		<div class="ui top attached">
+			<div class="ui divided items">
+				<% blogs.forEach(function(blog){ %>
+					<div class="item">
+						<img id="iimg" src="<%=blog.image%>" style="padding-right:10px;">
+						<div class="content">
+							<h2><%=blog.title%></h2>
+							<span><%=blog.created.toDateString()%></span>
+							<p><%=blog.description.substring(0,50)%>...</p>
+							<a class="ui blue basic button" href="/blogs/<%= blog._id %>">Read More </a>
+						</div>
+					</div>
+				<% }); %>
+			</div>
+		</div>
+	</div>
+</div>
+<include ./partials/footer.ejs>
